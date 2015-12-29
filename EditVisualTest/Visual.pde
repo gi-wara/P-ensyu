@@ -1,7 +1,9 @@
-class Establish{
+class EditVisual{
   /*
   設定画面のビジュアルが描写されるテスト版クラスです。
-  本書きはまた別で組みます。
+  メンバーに渡すクラスではありません。
+  ビジュアルの調整ができ次第即急に組みます。
+  プルダウンメニューと文字入力欄の作り方を現在模索中です…。
   文字の色、記号の名前など細かいところは
   他の人との兼ね合いで後々変える予定です。
   */
@@ -12,15 +14,15 @@ class Establish{
   int pointY=40;
   int returnPointY=40;
   int space1=40;
-  int space2=30;
+  int space2=50;
   PFont font;
-  Establish(){
+  EditVisual(){
     font = createFont("MS Gothic",48,true);
     textFont(font);
   }
   //設定欄の並びは元のマキネーションの順番を参考にしています
   //全体の設定
-  void WholeEstablish(){
+  void WholeEdit(){
     //フォント設定をしないと文字化けしてしまったので、フォント設定してます
     textSize(23);
     fill(0);
@@ -195,6 +197,24 @@ class Establish{
     text("ラベル",pointX,pointY);
     pointY+=space1;
     text("Activation",pointX,pointY);
+    pointY+=space1;
+    //↓pull mode
+    text("リソース不足のとき",pointX,pointY);
+    pointY=returnPointY;
+  }
+  
+  //終了条件(EndCondition)の設定
+  void endcondition(){
+    textSize(23);
+    fill(0);
+    text("終了条件",pointX,pointY);
+    pointY+=space1;
+    textSize(20);
+    text("色",pointX,pointY);
+    pointY+=space1;
+    text("厚さ",pointX,pointY);
+    pointY+=space1;
+    text("ラベル",pointX,pointY);
     pointY+=space1;
     //↓pull mode
     text("リソース不足のとき",pointX,pointY);
