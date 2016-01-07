@@ -12,7 +12,7 @@ void setup() {
   /* add a ScrollableList, by default it behaves like a DropdownList */
   cp5.addScrollableList(choose)
      .setPosition(0, 100)
-     .setSize(200, 100)
+     .setSize(100, 200)
      .setBarHeight(25)
      .setItemHeight(20)
      .addItems(l)

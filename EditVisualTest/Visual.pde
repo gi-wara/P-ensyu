@@ -1,3 +1,10 @@
+//controlP5を使用します
+//起動するにはライブラリにてcontrolP5をインストールしてください
+import controlP5.*;
+ControlP5 cp1;
+ControlP5 cp2;
+ControlP5 cp3;
+ControlP5 cp4;
 class EditVisual{
   /*
   設定画面のビジュアルが描写されるテスト版クラスです。
@@ -15,6 +22,11 @@ class EditVisual{
   int returnPointY=40;
   int space1=40;
   int space2=50;
+  
+  //プルダウンリストの中身
+  List l1=Arrays.asList("Black","Red","Brue","Yellow","Green","Pink");
+  List l2=Arrays.asList("");
+  
   PFont font;
   EditVisual(){
     font = createFont("MS Gothic",48,true);
