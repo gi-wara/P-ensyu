@@ -6,36 +6,28 @@ import controlP5.*;
 import java.util.*;
 
 //白い場所のどこをクリックしてるかの関数を定義します
-//今回はプールをクリックしている場合の画面を作ります
+//今回はプールをクリックしていると仮定して画面を作ります
 String click="pool";
 
 EditPool editPool;
 void setup() {
   editPool=new EditPool();
   size(800, 800);
-  P5Pool(editPool.pointX, editPool.pointY,editPool.space1, "Black");
+  
+  //私が考えた最強の関数
+  P5Pool(editPool.pointX, editPool.pointY,editPool.space1);
 }
 
 void draw() {
   
   background(255);  
   editPool.Visual();
+  line(0,5,400,5);
+  //if(Numberbox
+  //println(Numberbox.getValue());
 }
 
-//これを付け加えておいてください
-void dropdown(String n) {
-  if (click=="pool") {
-    if(n=="Black"){
-      println(" (0,0,0)");
-    }if(n=="Red"){
-      println("(255, 0, 0)");
-    }if(n=="Blue"){
-      println("(0, 0, 255)");
-    }if(n=="Yellow"){
-      println("(255, 255, 0)");
-    }if(n=="Green"){
-      println("(0,255, 0)");
-    }
-  }
+void mousePressed(){
+  editPool.ButtonPushed();
+  println("push!");
 }
-
