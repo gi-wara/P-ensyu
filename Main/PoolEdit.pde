@@ -1,8 +1,13 @@
-//作成者ぎーわら
-//クラスの下に関数もおいてあるので注意
-import javax.swing.*;
-//白いスペース内のプールを選択したときの設定欄の描写クラス
-class EditPool {
+//プールの設定欄描写のクラス
+//他の説明欄のクラスはこれを継承して作ってます
+
+
+//フォントを設定しないとうまく動かないのよね
+PFont font;
+
+
+class PoolEdit {
+  
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
@@ -14,21 +19,22 @@ class EditPool {
   int returnPointY;
   int space1;
   int space2;
-
-  int buttonPushFlag=0;
-  //フォントを設定しないとうまく動かないのよね
-  PFont font;
-
+  
   //ラベルの文章
   String LabelText="";
-  EditPool() {
+  
+  int buttonPushFlag=1;
+  PoolEdit() {
+    
     //関数に定数を与える
-    pointX=30;
-    returnPointX=30;
-    pointY=30;
-    returnPointY=30;
+    pointX=730;
+    returnPointX=730;
+    pointY=400;
+    returnPointY=400;
     space1=40;
     space2=50;
+    
+    
 
     //フォント設定
     font = createFont("MS Gothic", 48, true);
@@ -42,41 +48,54 @@ class EditPool {
   }
 
   //設定画面の描写
+  //ここ結構重要なとこ
   void Visual() {
     textSize(23);
     fill(0);
     text("プール", pointX, pointY);
     pointY+=space1;
     textSize(20);
+    //色
     text("色", pointX, pointY);
+    ColorChoose.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //厚さ
     text("厚さ", pointX, pointY);
+    Thickness.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //ラベル
     text("ラベル", pointX, pointY);
-    //ラベルの描写
     fill(255);
     strokeWeight(2);
     rect(pointX+240, pointY-20, 100, 25);
     fill(0);
     strokeWeight(1);
+    textSize(15);
+    text(LabelText, pointX+245, pointY);
+    textSize(20);
     pointY+=space1;
-    text("Activation", pointX, pointY);
+    text("発動タイミング", pointX, pointY);
     //ボタンの描写
     buttonVisual(pointX+240, pointY-20);
-    textSize(15);
-    text(LabelText,pointX+240,pointY-40);
     pointY+=space1;
-    textSize(20);
-    //↓pull mode
+    //リソース不足（pull mode）
     text("リソース不足のとき", pointX, pointY);
+    PullMode.setPosition(pointX+240, pointY-20);
     pointY+=space1;
     text("リソースの色", pointX, pointY);
+    ResourceColor.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //リソースの初期値
     text("リソースの初期値", pointX, pointY);
+    StartValue.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //最大容量
     text("最大容量", pointX, pointY);
+    MaxCapacity.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //可視化できる最大容量
     text("可視化できる最大容量", pointX, pointY);
+    VisibleValue.setPosition(pointX+240, pointY-20);
     pointY=returnPointY;
   }
 
@@ -103,8 +122,6 @@ class EditPool {
       mY>pY&&mY<pY+BoxHeight) {
       buttonPushFlag=4;
       println("buttonPushFlag="+buttonPushFlag);
-    } else {
-      println("Oh no!");
     }
   }
 
@@ -113,11 +130,12 @@ class EditPool {
     //ボタンの大きさ
     int BoxWidth=20;
     int BoxHeight=23;
+    //ボタンを押したときに
+    //ちょっと押し込まれた感じの描写をつくるのに使います
     int gap=0;
     strokeWeight(3);
 
     //ボタン1個目
-    //ボタンの色などを決めます
     if (buttonPushFlag==1) {
       fill(237, 234, 255);
       gap=1;
@@ -129,7 +147,6 @@ class EditPool {
       fill(197, 193, 255);
       gap=0;
     }
-    //ボタンの描写
     rect(pX+gap, pY+gap, BoxWidth, BoxHeight);
     line(pX+gap*2, pY+BoxHeight+2, pX+BoxWidth+1, pY+BoxHeight+2);
     line(pX+BoxWidth+2, pY+gap*2, pX+BoxWidth+2, pY+BoxHeight+1);
@@ -223,160 +240,6 @@ class EditPool {
 
       println(r);
       LabelText=text1.getText();
-    }
-  }
-}
-
-//プルダウンリストを作る関数
-//画面が切り替わる一瞬のみ出力させるようにしてください
-void P5Pool(int pointX, int pointY, int space,boolean flag) {
-  //controlP5の初期化
-  ControlP5 cp5=new ControlP5(this);
-
-  //リスト置き場
-  //ResourceColorList内の語尾の空白はわざとです
-  //ColorChooseListとの区別をするためにやっています
-  List ColorChooseList=Arrays.asList("Black", "Red", "Brue", "Yellow", "Green");
-  List PullModeList=Arrays.asList("pull any", "pull all", "push any", "push all");
-  List ResourceColorList=Arrays.asList("Black ", "Red ", "Brue ", "Yellow ", "Green ");
-
-  ScrollableList ColorChoose;
-  ScrollableList ResourceColor;
-  Numberbox Thickness;
-  Numberbox StartValue;
-  ScrollableList PullMode;
-  Numberbox MaxValie;
-  Numberbox VisibleValue;
-
-  //可視化できる最大容量の設定（名前は半角空欄4つ）
-  VisibleValue=cp5.addNumberbox("    ")
-    .setSize(100, 25)
-    .setRange(0, 30)
-    .setPosition(pointX+240, pointY+space*9-20)
-    .setMultiplier(5)
-    .setDirection(Controller.HORIZONTAL)
-    .setValue(1)
-    ;
-  //最大容量の設定（名前は半角空欄3つ）
-  MaxValie=cp5.addNumberbox("   ")
-    .setSize(100, 25)
-    .setRange(-1, 500)
-    .setPosition(pointX+240, pointY+space*8-20)
-    .setMultiplier(1)
-    .setDirection(Controller.HORIZONTAL)
-    .setValue(1)
-    ;
-  //リソースの初期値の設定（名前は半角空欄2つ）
-  StartValue=cp5.addNumberbox("  ")
-    .setSize(100, 25)
-    .setRange(0, 100)
-    .setPosition(pointX+240, pointY+space*7-20)
-    .setMultiplier(1)
-    .setDirection(Controller.HORIZONTAL)
-    .setValue(1)
-    ;
-  //リソースの色の設定
-  ResourceColor=cp5.addScrollableList("Black ")
-    .setPosition(pointX+240, pointY+space*6-20)
-    .setSize(100, 200)
-    .setBarHeight(25)
-    .setItemHeight(20) 
-    .addItems(ResourceColorList)
-    .setBarHeight(25) 
-    .close()
-    ;
-  //pullmode（リソース不足のとき）の設定
-  PullMode=cp5.addScrollableList("pull any")
-    .setPosition(pointX+240, pointY+space*5-20)
-    .setSize(100, 200)
-    .setBarHeight(25) 
-    .setItemHeight(20)
-    .addItems(PullModeList)
-    .setBarHeight(25) 
-    .close()
-    ;
-  //厚さ設定（名前は半角空欄1つ)
-  Thickness=cp5.addNumberbox(" ")
-    .setSize(100, 25)
-    .setRange(0, 10)
-    .setPosition(pointX+240, pointY+space*2-20)
-    .setMultiplier(1)
-    .setDirection(Controller.HORIZONTAL)
-    .setValue(1)
-    ;
-
-  //色の設定
-  ColorChoose=cp5.addScrollableList("Black")
-    .setPosition(pointX+240, pointY+space-20)
-    .setSize(100, 200)
-    .setBarHeight(25)
-    .setItemHeight(20) 
-    .addItems(ColorChooseList)
-    .setBarHeight(25)
-    .close()
-    ;
-    
-  //ページが切り替わると消えるようにする
-  if(flag==false){
-    ColorChoose.remove();
-    ResourceColor.remove();
-    Thickness.remove();
-    StartValue.remove();
-    PullMode.setBarVisible(false);
-    MaxValie.remove();
-    VisibleValue.remove();
-  }
-
-  //自分用メモ
-  //float s1 = cp5.getController("hello").getValue();
-}
-
-//プルダウンリスト内のアイテムを押したときの出力結果
-//if文多くてごめんなさい。許して♡
-void dropdown(String n) {
-  if (click=="pool") {
-    //オブジェクトの色変更
-    if (n=="Black") {
-      println(" (0,0,0)");
-    }
-    if (n=="Red") {
-      println("(255, 0, 0)");
-    }
-    if (n=="Blue") {
-      println("(0, 0, 255)");
-    }
-    if (n=="Yellow") {
-      println("(255, 255, 0)");
-    }
-    if (n=="Green") {
-      println("(0,255, 0)");
-    }
-
-    //pull modeの変更
-    if (n=="pull any") {
-    }
-    if (n=="pull all") {
-    }
-    if (n=="push any") {
-    }
-    if (n=="push all") {
-    }
-
-    //リソースの色変更
-    if (n=="Black ") {
-      println(" (0,0,0)");
-    }
-    if (n=="Red ") {
-      println("(255, 0, 0)");
-    }
-    if (n=="Blue ") {
-      println("(0, 0, 255)");
-    }
-    if (n=="Yellow ") {
-      println("(255, 255, 0)");
-    }
-    if (n=="Green ") {
-      println("(0,255, 0)");
     }
   }
 }
