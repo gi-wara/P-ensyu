@@ -12,8 +12,6 @@ class GateEdit extends PoolEdit{
     returnPointY=400;
     space1=40;
     space2=50;
-    
-    
 
     //フォント設定
     font = createFont("MS Gothic", 48, true);
