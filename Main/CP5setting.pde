@@ -33,7 +33,8 @@ void CP5setting() {
   //リスト置き場
   List ColorChooseList=Arrays.asList("Black", "Red", "Brue", "Yellow", "Green");
   List PullModeList=Arrays.asList("pull any", "pull all", "push any", "push all");
-  List DistributionList=Arrays.asList("fixed speed", "instaneous");;
+  List DistributionList=Arrays.asList("fixed speed", "instaneous");
+  ;
   //
   //可視化できる最大容量の設定（名前は半角空欄6つ）
   VisibleValue=cp5.addNumberbox("      ")
@@ -47,7 +48,7 @@ void CP5setting() {
   //最大値の設定（名前は半角空欄5つ）
   MaxValue=cp5.addNumberbox("     ")
     .setSize(100, 25)
-    .setRange(1,500)
+    .setRange(1, 500)
     .setPosition(1150, 0)
     .setMultiplier(1)
     .setDirection(Controller.HORIZONTAL)
@@ -56,7 +57,7 @@ void CP5setting() {
   //最小値の設定(名前は半角空欄4つ)
   MinValue=cp5.addNumberbox("    ")
     .setSize(100, 25)
-    .setRange(0,50)
+    .setRange(0, 50)
     .setPosition(1150, 0)
     .setMultiplier(1)
     .setDirection(Controller.HORIZONTAL)
@@ -138,7 +139,6 @@ void CP5setting() {
     .setDirection(Controller.HORIZONTAL)
     .setValue(1)
     ;
-
 }
 
 
@@ -205,7 +205,7 @@ color ResourceColor() {
 }
 
 //淵の厚さの変更
-void Thickness(){
+void Thickness() {
   strokeWeight(int(Thickness.getValue()));
 }
 

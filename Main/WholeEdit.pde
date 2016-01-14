@@ -1,14 +1,14 @@
-class WholeEdit extends PoolEdit{
+class WholeEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
-  
+
   //上からファイル名と作成者とダイスのテキスト
   String FileName="";
   String AuthorName="";
   String DiseValue="D6";
   WholeEdit() {
-    
+
     //関数に定数を与える
     pointX=730;
     returnPointX=730;
@@ -16,8 +16,8 @@ class WholeEdit extends PoolEdit{
     returnPointY=400;
     space1=40;
     space2=50;
-    
-    
+
+
 
     //フォント設定
     font = createFont("MS Gothic", 48, true);
@@ -61,11 +61,11 @@ class WholeEdit extends PoolEdit{
     pointY+=space1;
     //流れる間隔(interval)
     text("流れる間隔", pointX, pointY);
-    Interval.setPosition(pointX+240,pointY-20);
+    Interval.setPosition(pointX+240, pointY-20);
     pointY+=space1;
     //リソースの流れ方(Distribution)
     text("リソースの流れ方", pointX, pointY);
-    Distribution.setPosition(pointX+240,pointY-20);
+    Distribution.setPosition(pointX+240, pointY-20);
     pointY+=space1;
     //ダイスの値(Dice)
     text("ダイスの値", pointX, pointY);
@@ -79,7 +79,7 @@ class WholeEdit extends PoolEdit{
     textSize(20);
     pointY=returnPointY;
   }
-  
+
   //ラベル内をクリックしたとき入力フォームが出てくる
   void textForm() {
     //名前の記入フォームを押したとき
@@ -121,7 +121,7 @@ class WholeEdit extends PoolEdit{
       AuthorName=text1.getText();
     }
   }
-  
+
   //ボタンをクリックしたときのフラグ管理
   //ボタン描写の変化に使います
   void ButtonPushed(int mX, int mY) {
@@ -132,5 +132,4 @@ class WholeEdit extends PoolEdit{
   void buttonVisual(int pX, int pY) {
     //使わないので空欄
   }
-
 }

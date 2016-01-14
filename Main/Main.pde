@@ -5,7 +5,7 @@
 
 /*
 
-controlP5を使用したNumberboxの数値を取り出す方法(多分重要）
+ controlP5を使用したNumberboxの数値を取り出す方法(多分重要）
  Numberboxのクラス名.getValue();
  Numberboxのクラス名は個々の説明欄クラスを参照
  
@@ -26,6 +26,8 @@ import java.util.*;
 
 //作ったクラスを初期化します
 WholeEdit editWhole;
+TextlabelEdit editTextlabel;
+GroupboxEdit editGroupbox;
 PoolEdit editPool;
 GateEdit editGate;
 FlowEdit editFlow;
@@ -39,6 +41,8 @@ void setup() {
   //controlP5を初期化します
   cp5=new ControlP5(this);
   editWhole=new WholeEdit();
+  editTextlabel=new TextlabelEdit ();
+  editGroupbox=new GroupboxEdit ();
   editPool=new PoolEdit();
   editGate=new GateEdit();
   editFlow=new FlowEdit();

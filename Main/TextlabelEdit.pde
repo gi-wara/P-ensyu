@@ -1,11 +1,12 @@
-//実線矢印と点線矢印のクラスはどちらもこのタブ内に書いています
+//テキストラベル（Text Label）とグループボックス(Group Box)のクラスはどちらもこのタブ内に書いています
 
-//実線矢印の設定欄のクラス
-class FlowEdit extends PoolEdit {
+//テキストラベルの設定欄のクラス
+class TextlabelEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
-  FlowEdit() {
+
+  TextlabelEdit() {
 
     //関数に定数を与える
     pointX=730;
@@ -14,7 +15,7 @@ class FlowEdit extends PoolEdit {
     returnPointY=400;
     space1=40;
     space2=50;
-
+    buttonPushFlag=2;
 
 
     //フォント設定
@@ -23,7 +24,7 @@ class FlowEdit extends PoolEdit {
 
     //テキスト欄設定
     panel.setLayout(layout);
-    panel.add(new JLabel("半角英数字のみ有効"));
+    panel.add(new JLabel("入力"));
     text1 = new JTextField();
     panel.add(text1);
   }
@@ -33,7 +34,7 @@ class FlowEdit extends PoolEdit {
   void Visual() {
     textSize(23);
     fill(0);
-    text("矢印", pointX, pointY);
+    text("テキストラベル", pointX, pointY);
     pointY+=space1;
     textSize(20);
     //色
@@ -54,27 +55,17 @@ class FlowEdit extends PoolEdit {
     textSize(15);
     text(LabelText, pointX+245, pointY);
     textSize(20);
-    pointY+=space1;
-    //最小値
-    text("最小値", pointX, pointY);
-    MinValue.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    //最大値
-    text("最大値", pointX, pointY);
-    MaxValue.setPosition(pointX+240, pointY-20);
-
     pointY=returnPointY;
   }
 }
 
-
-//------------点線矢印の設定欄-----------------
-
-class StateEdit extends PoolEdit {
+//----------グループボックス（Group Box）の設定欄のクラス----------------
+class GroupboxEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
-  StateEdit() {
+
+  GroupboxEdit() {
 
     //関数に定数を与える
     pointX=730;
@@ -83,7 +74,7 @@ class StateEdit extends PoolEdit {
     returnPointY=400;
     space1=40;
     space2=50;
-
+    buttonPushFlag=2;
 
 
     //フォント設定
@@ -92,7 +83,7 @@ class StateEdit extends PoolEdit {
 
     //テキスト欄設定
     panel.setLayout(layout);
-    panel.add(new JLabel("半角英数字のみ有効"));
+    panel.add(new JLabel("入力"));
     text1 = new JTextField();
     panel.add(text1);
   }
@@ -102,7 +93,7 @@ class StateEdit extends PoolEdit {
   void Visual() {
     textSize(23);
     fill(0);
-    text("点線の矢印", pointX, pointY);
+    text("枠", pointX, pointY);
     pointY+=space1;
     textSize(20);
     //色
@@ -123,14 +114,6 @@ class StateEdit extends PoolEdit {
     textSize(15);
     text(LabelText, pointX+245, pointY);
     textSize(20);
-    pointY+=space1;
-    //最小値
-    text("最小値", pointX, pointY);
-    MinValue.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    //最大値
-    text("最大値", pointX, pointY);
-    MaxValue.setPosition(pointX+240, pointY-20);
     pointY=returnPointY;
   }
 }

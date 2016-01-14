@@ -1,11 +1,11 @@
 //白いスペース内のプールを選択したときの設定欄の描写クラス
-class SourceEdit extends PoolEdit{
+class SourceEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
-  
+
   SourceEdit() {
-    
+
     //関数に定数を与える
     pointX=730;
     returnPointX=730;
@@ -14,7 +14,7 @@ class SourceEdit extends PoolEdit{
     space1=40;
     space2=50;
     buttonPushFlag=2;
-    
+
 
     //フォント設定
     font = createFont("MS Gothic", 48, true);
@@ -66,5 +66,4 @@ class SourceEdit extends PoolEdit{
     ResourceColor.setPosition(pointX+240, pointY-20);
     pointY=returnPointY;
   }
-
 }

@@ -1,9 +1,9 @@
-class EndConditionEdit extends PoolEdit{
+class EndConditionEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
   EndConditionEdit() {
-    
+
     //関数に定数を与える
     pointX=730;
     returnPointX=730;
@@ -11,8 +11,8 @@ class EndConditionEdit extends PoolEdit{
     returnPointY=400;
     space1=40;
     space2=50;
-    
-    
+
+
 
     //フォント設定
     font = createFont("MS Gothic", 48, true);

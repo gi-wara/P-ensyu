@@ -1,10 +1,10 @@
 
-class GateEdit extends PoolEdit{
+class GateEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
   JTextField text1;
   GateEdit() {
-    
+
     //関数に定数を与える
     pointX=730;
     returnPointX=730;
@@ -59,6 +59,5 @@ class GateEdit extends PoolEdit{
     text("リソース不足のとき", pointX, pointY);
     PullMode.setPosition(pointX+240, pointY-20);
     pointY=returnPointY;
-    
   }
 }
