@@ -1,4 +1,4 @@
-//白いスペース内のプールを選択したときの設定欄の描写クラス
+//ソース（Source）選択したときの設定欄の描写クラス
 class SourceEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
@@ -54,14 +54,15 @@ class SourceEdit extends PoolEdit {
     text(LabelText, pointX+245, pointY);
     textSize(20);
     pointY+=space1;
+    //発動タイミング(Activation)
     text("発動タイミング", pointX, pointY);
-    //ボタンの描写
     buttonVisual(pointX+240, pointY-20);
     pointY+=space1;
     //リソース不足（pull mode）
     text("リソース不足のとき", pointX, pointY);
     PullMode.setPosition(pointX+240, pointY-20);
     pointY+=space1;
+    //リソースの色
     text("リソースの色", pointX, pointY);
     ResourceColor.setPosition(pointX+240, pointY-20);
     pointY=returnPointY;

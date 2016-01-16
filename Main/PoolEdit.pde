@@ -27,10 +27,10 @@ class PoolEdit {
   PoolEdit() {
 
     //関数に定数を与える
-    pointX=730;
-    returnPointX=730;
-    pointY=400;
-    returnPointY=400;
+    pointX=740;
+    returnPointX=740;
+    pointY=330;
+    returnPointY=330;
     space1=40;
     space2=50;
 
@@ -74,8 +74,8 @@ class PoolEdit {
     text(LabelText, pointX+245, pointY);
     textSize(20);
     pointY+=space1;
+    //発動タイミング（Acivation）
     text("発動タイミング", pointX, pointY);
-    //ボタンの描写
     buttonVisual(pointX+240, pointY-20);
     pointY+=space1;
     //リソース不足（pull mode）
@@ -225,6 +225,7 @@ class PoolEdit {
     textSize(23);
     text("s", pX+81+5+gap, pY+gap+18);
     strokeWeight(1);
+    textSize(20);
   }
 
   //テキストを記入するフォームを出す

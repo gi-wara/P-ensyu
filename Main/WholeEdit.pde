@@ -1,3 +1,5 @@
+//全体の設定欄の描写のクラス
+
 class WholeEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);

@@ -14,7 +14,6 @@ class DrainEdit extends PoolEdit {
     space2=50;
 
 
-
     //フォント設定
     font = createFont("MS Gothic", 48, true);
     textFont(font);
@@ -53,8 +52,8 @@ class DrainEdit extends PoolEdit {
     text(LabelText, pointX+245, pointY);
     textSize(20);
     pointY+=space1;
+    //発動タイミング（Acivation）
     text("発動のタイミング", pointX, pointY);
-    //ボタンの描写
     buttonVisual(pointX+240, pointY-20);
     pointY+=space1;
     //リソース不足（pull mode）

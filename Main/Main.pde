@@ -1,7 +1,10 @@
 //作成者ぎーわら
-//こっちはクラスのテスト画面です
+//こっちはクラスのテスト試行画面です
 
-//PoolEditクラスを継承して他の説明欄のクラスを作っています
+
+//私の作ったタブはCP5settingと他語尾にEditとついてるやつです
+//PoolEditクラスを継承して他の説明欄のクラス（語尾がEditのやつ）を作っています
+
 
 /*
 
@@ -63,12 +66,15 @@ void draw() {
 
   //これで厚さの値を取得することができます
   println(int(Thickness.getValue()));
-
+  
+  //設定欄の表示
   editPool.Visual();
 }
 void mousePressed() {
+  
   //ボタンの位置をクリックしたらボタンが出てくる
   editPool.ButtonPushed(mouseX, mouseY);
+  
   //ラベルの欄内をクリックしたら記入フォームが出てくる
   editPool.textForm();
 }

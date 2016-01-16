@@ -1,3 +1,5 @@
+//終了条件(EndCondition）の描写のクラス
+
 class EndConditionEdit extends PoolEdit {
   JPanel panel = new JPanel();
   BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
@@ -52,6 +54,7 @@ class EndConditionEdit extends PoolEdit {
     text(LabelText, pointX+245, pointY);
     textSize(20);
     pointY+=space1;
+    //発動タイミング（Acivation）
     text("発動タイミング", pointX, pointY);
     //ボタンの描写
     buttonVisual(pointX+240, pointY-20);

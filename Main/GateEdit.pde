@@ -1,3 +1,4 @@
+//ゲート（Gate）の描写のクラス
 
 class GateEdit extends PoolEdit {
   JPanel panel = new JPanel();
@@ -51,7 +52,7 @@ class GateEdit extends PoolEdit {
     text(LabelText, pointX+245, pointY);
     textSize(20);
     pointY+=space1;
-    //
+    //発動タイミング（Acivation）
     text("発動タイミング", pointX, pointY);
     buttonVisual(pointX+240, pointY-20);
     pointY+=space1;
