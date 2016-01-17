@@ -15,7 +15,6 @@ Numberbox StartValue;
 ScrollableList PullMode;
 Numberbox MaxCapacity;
 Numberbox VisibleValue;
-ScrollableList NormalOrDyce;
 Numberbox MinValue;
 Numberbox MaxValue;
 Numberbox Interval;
@@ -174,7 +173,6 @@ void cp5Indivisual() {
   PullMode.setPosition(1150,0);
   MaxCapacity.setPosition(1150,0);
   VisibleValue.setPosition(1150,0);
-  NormalOrDyce.setPosition(1150,0);
   MinValue.setPosition(1150,0);
   MaxValue.setPosition(1150,0);
   Interval.setPosition(1150,0);
