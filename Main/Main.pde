@@ -79,13 +79,13 @@ void draw() {
   println(int(Thickness.getValue()));
 
   //設定欄の表示
-  editPool.Visual();
+  editAP.Visual();
 }
 void mousePressed() {
 
   //ボタンの位置をクリックしたらボタンが出てくる
-  editPool.ButtonPushed(mouseX, mouseY);
+  editAP.ButtonPushed(mouseX, mouseY);
 
   //ラベルの欄内をクリックしたら記入フォームが出てくる
-  editPool.textForm();
+  editAP.textForm();
 }

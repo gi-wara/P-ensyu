@@ -1,9 +1,9 @@
-//人工プレイヤーの描写
+//人工プレイヤー(ArtificialPlayer)の描写
 class ArtificialPlayerEdit extends PoolEdit{
  //ラベルの文章
   String LabelText="";
 
-  int buttonPushFlag=2;
+  int buttonPushFlag=3;
   ArtificialPlayerEdit() {
 
     //関数に定数を与える
@@ -57,11 +57,15 @@ class ArtificialPlayerEdit extends PoolEdit{
     //発動タイミング（Acivation）
     text("発動タイミング", pointX, pointY);
     buttonVisual(pointX+240, pointY-20);
+    pointY+=space1;
     //スクリプト(script)
+    //時間がなくてここに記入することはできません
     text("スクリプト",pointX,pointY);
     fill(255);
+    strokeWeight(2);
     rect(pointX+240,pointY-20,100,100);
     fill(0);
+    strokeWeight(1);
     pointY=returnPointY;
   }
 
