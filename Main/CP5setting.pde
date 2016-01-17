@@ -165,72 +165,90 @@ void CP5setting() {
     ;
 }
 
-
-//-----ここからは入力内容を作業スペースに反映させる関数です-------
-
-//プルダウンリスト内のアイテムを押したときの出力結果
-color ColorChoose() {
-  //オブジェクトの色変更
-  if (ColorChoose.getName()=="Black") {
-    return color(0, 0, 0);
-  }
-  if (ColorChoose.getName()=="Red") {
-    return color(255, 0, 0);
-  }
-  if (ColorChoose.getName()=="Blue") {
-    return color(0, 0, 255);
-  }
-  if (ColorChoose.getName()=="Yellow") {
-    return color(255, 255, 0);
-  }
-  if (ColorChoose.getName()=="Green") {
-    return color(0, 255, 0);
-  }
-  return color(0);
+//切り替わるときに消えるようにする
+void cp5Indivisual() {
+  ColorChoose.setPosition(1150,0);
+  ResourceColor.setPosition(1150,0);
+  Thickness.setPosition(1150,0);
+  StartValue.setPosition(1150,0);
+  PullMode.setPosition(1150,0);
+  MaxCapacity.setPosition(1150,0);
+  VisibleValue.setPosition(1150,0);
+  NormalOrDyce.setPosition(1150,0);
+  MinValue.setPosition(1150,0);
+  MaxValue.setPosition(1150,0);
+  Interval.setPosition(1150,0);
+  Distribution.setPosition(1150,0);
+  ScaleX.setPosition(1150,0);
+  ScaleY.setPosition(1150,0);
 }
-//リソース不足のとき（pull mode）の変更
-//返り値はどうしとくのが最適かわからないのでintにしました
-int  PullMode() {
-  //pull modeの変更
-  if (PullMode.getName()=="pull any") {
-    return 0;
-  }
-  if (PullMode.getName()=="pull all") {
-    return 1;
-  }
-  if (PullMode.getName()=="push any") {
-    return 2;
-  }
-  if (PullMode.getName()=="push all") {
-    return 3;
-  }
-  return 0;
-}
+  
 
-//リソースの色の変更
-color ResourceColor() {
-  //リソースの色変更
-  if (ResourceColor.getName()=="Black"&&ResourceColor.getName()=="Black") {
+  //-----ここからは入力内容を作業スペースに反映させる関数です-------
+
+  //プルダウンリスト内のアイテムを押したときの出力結果
+  color ColorChoose() {
+    //オブジェクトの色変更
+    if (ColorChoose.getName()=="Black") {
+      return color(0, 0, 0);
+    }
+    if (ColorChoose.getName()=="Red") {
+      return color(255, 0, 0);
+    }
+    if (ColorChoose.getName()=="Blue") {
+      return color(0, 0, 255);
+    }
+    if (ColorChoose.getName()=="Yellow") {
+      return color(255, 255, 0);
+    }
+    if (ColorChoose.getName()=="Green") {
+      return color(0, 255, 0);
+    }
     return color(0);
   }
-  if (ResourceColor.getName()=="Red") {
-    return color(255, 0, 0);
+  //リソース不足のとき（pull mode）の変更
+  //返り値はどうしとくのが最適かわからないのでintにしました
+  int  PullMode() {
+    //pull modeの変更
+    if (PullMode.getName()=="pull any") {
+      return 0;
+    }
+    if (PullMode.getName()=="pull all") {
+      return 1;
+    }
+    if (PullMode.getName()=="push any") {
+      return 2;
+    }
+    if (PullMode.getName()=="push all") {
+      return 3;
+    }
+    return 0;
   }
-  if (ResourceColor.getName()=="Blue") {
-    return color(0, 0, 255);
-  }
-  if (ResourceColor.getName()=="Yellow") {
-    return color(255, 255, 0);
-  }
-  if (ResourceColor.getName()=="Green") {
-    return color(0, 255, 0);
-  }
-  return 0;
-}
 
-//淵の厚さの変更
-void Thickness() {
-  strokeWeight(int(Thickness.getValue()));
-}
+  //リソースの色の変更
+  color ResourceColor() {
+    //リソースの色変更
+    if (ResourceColor.getName()=="Black"&&ResourceColor.getName()=="Black") {
+      return color(0);
+    }
+    if (ResourceColor.getName()=="Red") {
+      return color(255, 0, 0);
+    }
+    if (ResourceColor.getName()=="Blue") {
+      return color(0, 0, 255);
+    }
+    if (ResourceColor.getName()=="Yellow") {
+      return color(255, 255, 0);
+    }
+    if (ResourceColor.getName()=="Green") {
+      return color(0, 255, 0);
+    }
+    return 0;
+  }
 
-//
+  //淵の厚さの変更
+  void Thickness() {
+    strokeWeight(int(Thickness.getValue()));
+  }
+
+  //

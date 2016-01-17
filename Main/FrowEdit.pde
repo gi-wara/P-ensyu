@@ -31,7 +31,7 @@ class FlowEdit extends PoolEdit {
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
-    cp5.setPosition(1150,0);
+    cp5Indivisual();
     textSize(23);
     fill(0);
     text("矢印", pointX, pointY);
@@ -101,6 +101,7 @@ class StateEdit extends PoolEdit {
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
+    cp5Indivisual();
     textSize(23);
     fill(0);
     text("点線の矢印", pointX, pointY);

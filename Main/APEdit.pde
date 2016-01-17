@@ -1,6 +1,6 @@
 //人工プレイヤー(ArtificialPlayer)の描写
-class ArtificialPlayerEdit extends PoolEdit{
- //ラベルの文章
+class ArtificialPlayerEdit extends PoolEdit {
+  //ラベルの文章
   String LabelText="";
 
   int buttonPushFlag=3;
@@ -30,7 +30,7 @@ class ArtificialPlayerEdit extends PoolEdit{
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
-    cp5.setPosition(1150,0);
+    cp5Indivisual();
     textSize(23);
     fill(0);
     text("人工プレイヤー", pointX, pointY);
@@ -61,10 +61,10 @@ class ArtificialPlayerEdit extends PoolEdit{
     pointY+=space1;
     //スクリプト(script)
     //時間がなくてここに記入することはできません
-    text("スクリプト",pointX,pointY);
+    text("スクリプト", pointX, pointY);
     fill(255);
     strokeWeight(2);
-    rect(pointX+240,pointY-20,100,100);
+    rect(pointX+240, pointY-20, 100, 100);
     fill(0);
     strokeWeight(1);
     pointY=returnPointY;

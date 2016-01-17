@@ -34,7 +34,7 @@ class WholeEdit extends PoolEdit {
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
-    cp5.setPosition(1150,0);
+    cp5Indivisual();
     textSize(23);
     fill(0);
     text("全体の設定", pointX, pointY);
