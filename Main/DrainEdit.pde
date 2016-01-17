@@ -6,10 +6,10 @@ class DrainEdit extends PoolEdit {
   DrainEdit() {
 
     //関数に定数を与える
-    pointX=730;
-    returnPointX=730;
-    pointY=400;
-    returnPointY=400;
+    pointX=740;
+    returnPointX=740;
+    pointY=330;
+    returnPointY=330;
     space1=40;
     space2=50;
 
@@ -28,6 +28,7 @@ class DrainEdit extends PoolEdit {
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
+    cp5.setPosition(1150,0);
     textSize(23);
     fill(0);
     text("ドレイン", pointX, pointY);

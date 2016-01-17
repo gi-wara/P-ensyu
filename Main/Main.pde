@@ -81,6 +81,7 @@ void draw() {
   //設定欄の表示
   editAP.Visual();
 }
+
 void mousePressed() {
 
   //ボタンの位置をクリックしたらボタンが出てくる

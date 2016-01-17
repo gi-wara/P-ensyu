@@ -30,6 +30,7 @@ class ArtificialPlayerEdit extends PoolEdit{
   //設定画面の描写
   //ここ結構重要なとこ
   void Visual() {
+    cp5.setPosition(1150,0);
     textSize(23);
     fill(0);
     text("人工プレイヤー", pointX, pointY);
