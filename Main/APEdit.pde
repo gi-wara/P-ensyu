@@ -1,31 +1,10 @@
-//プールの設定欄描写のクラス
-//他の説明欄のクラスはこれを継承して作ってます
-
-
-//フォントを設定しないとうまく動かないのよね
-PFont font;
-
-
-class PoolEdit {
-
-  JPanel panel = new JPanel();
-  BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
-  JTextField text1;
-
-  //テキストの配置を決める関数置き場
-  int pointX;
-  int returnPointX;
-  int pointY;
-  int returnPointY;
-  int space1;
-  int space2;
-
-  //ラベルの文章
+//人工プレイヤーの描写
+class ArtificialPlayerEdit extends PoolEdit{
+ //ラベルの文章
   String LabelText="";
-  
-  //どのボタンが押されてるかの判定
-  int buttonPushFlag=1;
-  PoolEdit() {
+
+  int buttonPushFlag=2;
+  ArtificialPlayerEdit() {
 
     //関数に定数を与える
     pointX=740;
@@ -53,7 +32,7 @@ class PoolEdit {
   void Visual() {
     textSize(23);
     fill(0);
-    text("プール", pointX, pointY);
+    text("人工プレイヤー", pointX, pointY);
     pointY+=space1;
     textSize(20);
     //色
@@ -78,25 +57,11 @@ class PoolEdit {
     //発動タイミング（Acivation）
     text("発動タイミング", pointX, pointY);
     buttonVisual(pointX+240, pointY-20);
-    pointY+=space1;
-    //リソース不足（pull mode）
-    text("リソース不足のとき", pointX, pointY);
-    PullMode.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    text("リソースの色", pointX, pointY);
-    ResourceColor.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    //リソースの初期値
-    text("リソースの初期値", pointX, pointY);
-    StartValue.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    //最大容量
-    text("最大容量", pointX, pointY);
-    MaxCapacity.setPosition(pointX+240, pointY-20);
-    pointY+=space1;
-    //可視化できる最大容量
-    text("可視化できる最大容量", pointX, pointY);
-    VisibleValue.setPosition(pointX+240, pointY-20);
+    //スクリプト(script)
+    text("スクリプト",pointX,pointY);
+    fill(255);
+    rect(pointX+240,pointY-20,100,100);
+    fill(0);
     pointY=returnPointY;
   }
 

@@ -17,8 +17,15 @@
  StartValue.setPosition(pointX+240, pointY-20);
  ↑.setpositionの前の部分がNumberboxのクラス名
  
+ NumberboxやScrollableListに指定した値を表示させる方法（多分重要）
+ Numberboxの場合
+ Numberboxのクラス名.setValue(int 指定した値);
+ ScrollableListの場合
+ Numberboxのクラス名.setValue(float リストの順番（0始まり）);
+ 
  */
-
+ 
+ 
 //controlP5を使用します
 //起動するにはライブラリにてcontrolP5をインストールしてください
 import controlP5.*;
@@ -38,6 +45,8 @@ StateEdit editState;
 SourceEdit editSource;
 DrainEdit editDrain;
 EndConditionEdit editEndCondition;
+ChartEdit editChart;
+ArtificialPlayerEdit editAP;
 
 void setup() {
 
@@ -53,6 +62,8 @@ void setup() {
   editSource=new SourceEdit();
   editDrain=new DrainEdit();
   editEndCondition=new EndConditionEdit();
+  editChart=new ChartEdit();
+  editAP=new ArtificialPlayerEdit();
 
   size(1100, 800);
 
@@ -66,15 +77,15 @@ void draw() {
 
   //これで厚さの値を取得することができます
   println(int(Thickness.getValue()));
-  
+
   //設定欄の表示
   editPool.Visual();
 }
 void mousePressed() {
-  
+
   //ボタンの位置をクリックしたらボタンが出てくる
   editPool.ButtonPushed(mouseX, mouseY);
-  
+
   //ラベルの欄内をクリックしたら記入フォームが出てくる
   editPool.textForm();
 }
